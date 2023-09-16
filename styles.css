@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'timerbold';
+  src: url('asset/OpenSans-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'SIMA';
+  src: url('asset/HalisR-SMedium.otf') format("truetype");
+}
+
+* {
+ font-family: SIMA;
+}
+
+span {
+  display: inline-block;
+  }
+
+audio {
+  display: none;
+  overflow: hidden;
+  }
+
+body, html {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;  
+  }
+  
+.bg {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  height: 100%;
+  width: 100%; 
+  background-size: cover;
+  transition: background-image 5s;
+  }
+
+
+/* TIMER BUTTONS */
+.buttons {
+  grid-area: 1/1;
+  position: relative;
+  top: 20%;
+  gap: 120px;
+  z-index: 150;
+  }
+  #startstop {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+  }
+  #reset {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+    margin-inline: 40px;
+  }
+  #edit {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+  }
+
+#fullscreen {
+  grid-area: 1/1;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  top: -47%;
+  left: 48.5%;
+  z-index: 150;
+}
+
+#volume-slider {
+  grid-area: 1/1;
+  position: relative;
+  top: 43%;
+  left: 48%;
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical;
+  width: 5px;
+  height: 100px;
+  z-index: 150;
+}
+
+
+/* TIMER DIGITS */
+.timer {
+  grid-area: 1/1;
+  position: relative;
+  top: -10px;
+  z-index: 100;
+  font-size: 350px;
+  color: rgb(0, 0, 0);
+  }
+  #displaytimer {
+    font-family: 'timerbold';
+  }
+  #displaytimerms {
+    font-size: 180px;
+    font-family: 'timerbold';
+  }
+
+
+/* TIMER BACKGROUND */
+.banner {
+  grid-area: 1/1;
+  height: 30%;
+  width: 100%;
+  background-color: white;
+  opacity: 80%;
+  z-index: 40;
+  /*background-image: radial-gradient(rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.3));*/
+  }
+
+  .circle1 {
+    grid-area: 1/1;
+    height: 95%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-image: radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3));
+    outline: rgb(190, 190, 190) solid 5px;
+    z-index: 1;
+  }
+  .circle2 {
+    grid-area: 1/1;
+    height: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-image: radial-gradient(rgb(190, 190, 190), rgba(255, 255, 255, 0.3));
+    z-index: 20;
+  }
+
+  .progbarcircle {
+    grid-area: 1/1;
+    aspect-ratio: 1/1;
+    z-index: 30;
+  }
+
+  .ring {
+    grid-area: 1/1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    outline: rgba(200, 0, 0, 1) solid 30px;
+    opacity: 0;
+    height: 220%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+  }
+
+
+/* EDIT MENU */
+#dialog {
+  grid-area: 1/1;
+  position: relative;
+  top: 20%;
+}
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable {
+  z-index: 300
+}
+.ui-widget-overlay {
+  opacity: .80 !important; 
+  filter: Alpha(Opacity=80) !important;
+  background: rgb(50, 50, 50) !important;
+}
+.modal * {
+  margin: auto;
+  position: relative;
+  text-align: center;
+  padding: 2%;
+}
+  .introw {
+    position: relative;
+    text-align: right;
+  }
+  .buttonrow {
+    position: relative;
+    text-align: right;
+    margin-top: 3%;
+    padding-bottom: 0%;
+    padding-top: 0%;
+  }
+    .modbutton {
+      position: relative;
+      margin-left: 10%;
+    }
+      #submit {
+        position: relative;
+        background-color: #cc0000;
+        color: #FFFFFF;
+        font-family: SIMA;
+      }
