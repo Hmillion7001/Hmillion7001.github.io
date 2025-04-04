@@ -67,7 +67,7 @@ function formatDuration(duration) {
     let seconds = Math.floor(duration/10) % 60;
     let milliseconds = duration % 10
     
-    minutes = minutes < 10 ? "0" + minutes : minutes;
+    minutes = minutes < 10 ? minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     timeRef.innerHTML = `${minutes}:${seconds}:`;
