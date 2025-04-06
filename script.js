@@ -1,10 +1,12 @@
-var currentBG = 'img/4f330a0193fa.jpg'
+var currentBG = 'img/000.jpg' // default BG image
 
 // --- BACKGROUND IMAGE CHANGER ---
 function randBGimg(oldimg) {
     //var fs = require('fs'); // doesnt work outside of VSCode/Node
     //var files = fs.readdirSync('img/');
-    var files = ['img/4f330a0193fa.jpg', 'img/5bf3c0365e1b.jpg', 'img/53e57f98eae2.jpg', 'img/84253cadfd2a.jpg', 'img/a526ceffde54.jpg', 'img/7cOw8fW.jpg', 'img/DXXxFjU.jpg']
+    var files = ['img/000.jpg', 'img/001.jpg', 'img/002.jpg', 'img/003.jpg', 'img/004.jpg', 'img/005.jpg',
+        'img/006.jpg', 'img/007.jpg', 'img/008.jpg', 'img/009.jpg', 'img/010.jpg',
+        'img/011.jpg', 'img/012.jpg']
         while (true) {
             var random = Math.floor(Math.random() * files.length);
             var newimg = files[random];
@@ -16,17 +18,7 @@ function randBGimg(oldimg) {
             }};
         };
 
-// Non-clientside way of getting array of images from asset folder   !!! FILE API ?!?
-//const imagesInput = document.getElementById("videos-input");
-
-//imagesInput.addEventListener("change", (e) => {
-//    const files = imagesInput.files;
-//    const fileNames = [...files].filter((file) => file.type === "Image").map((file) => file.name);
-//    console.log(fileNames, fileNames.length);
-    
-    // do whatever with `fileNames`
-//});
-
+// --- VOLUME SLIDER ---
 let volumeSlider = document.getElementById('volume-slider');
     Array.from(document.querySelectorAll('audio')).forEach(function(audio) {
         audio.volume = volumeSlider.value / 100;
@@ -37,7 +29,7 @@ let volumeSlider = document.getElementById('volume-slider');
         });
     });
 
-
+// --- FULLSCREEN TOGGLE ---
 function toggleFullscreen() {
     var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
         (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
@@ -70,7 +62,6 @@ function toggleFullscreen() {
     }
 }
 
-
 // ----- EDIT MENU -----
 var dialog
           dialog = $('div#dialog').dialog( {
@@ -96,4 +87,15 @@ var dialog
             dialog.dialog('close');
           });
 
-//toggleFullscreen();
+// ---- KEY BINDS ----
+document.addEventListener('keydown', function (event) {
+    console.log('Key pressed: ', event.key);
+    if (event.key === 'MediaPlayPause' || event.key === ' ') { // Play/Pause button and spacebar on airmouse bound to start/stop of the timer
+        playPause(); 
+        document.activeElement.blur(); // unselects button after pressing it so spacebar bind doesnt double click
+    } else if (event.key === 'MediaTrackPrevious' || event.key === 'MediaTrackNext') { // maybe find another button for Edit Menu to not mess up background music?
+        console.log('menu needs to be put into function'); 
+    };
+});
+
+//toggleFullscreen(); // Was trying to get the webpage to open directly into fullscreen but this doesn't appear to work
