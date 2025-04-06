@@ -75,7 +75,7 @@ function formatDuration(duration) {
 }
 
 
-// ----- BELLS & ANIMATIONS -----
+// --- BELLS & ANIMATIONS ---
 function oneDing() {
     var snd = document.getElementById("one-ding");
     snd.play();
@@ -94,15 +94,22 @@ function threeDing() {
     randBGimg(currentBG);
 }
 
-var startButton = document.getElementById("startstop");
-startButton.addEventListener("click", () => {
+// --- START/PAUSE BUTTON ---
+function playPause() {
     if (started == false && timeLeft > 0) {
         started = true;
         intervalTimer();
-        startButton.src="asset/pause.png";
-    } else { started = false;
-        startButton.src="asset/play.png";
+        startButton.src = "asset/pause.png";
+    } else {
+        started = false;
+        startButton.src = "asset/play.png";
     }
+}
+
+var startButton = document.getElementById("startstop");
+startButton.addEventListener("click", () => {
+    playPause();
+    document.activeElement.blur(); // unselects button after pressing it so spacebar bind doesnt double click
 });
 
 // --- JQuery UI & GSAP Animations ---
@@ -140,4 +147,4 @@ function bellrings() {
 
 
 formatDuration(work_duration)
-updateIntervaldurations(10, 10, 3)
+updateIntervaldurations(300, 30, 0) // Default intervals (5min work / 30sec rest/ infinite rounds)
