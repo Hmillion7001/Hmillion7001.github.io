@@ -11,7 +11,7 @@
 <body>
     <!--BACKGROUND...cycle images on round complete-->
     <div class="bg" id="bg">
-        <script>document.getElementById("bg").style.backgroundImage = "url(img/4f330a0193fa.jpg)";</script>
+        <script>document.getElementById("bg").style.backgroundImage = "url(img/000.jpg)";</script> <!--default BG image-->
 
         <!--TIMER BACKGROUND-->
         <div class="banner"></div>
@@ -36,7 +36,7 @@
         </div>
 
         <!--VOLUME SLIDER & FULLSCREEN-->
-        <input title="volslider" type="range" id="volume-slider" value="25" orient="vertical">
+        <input title="volslider" type="range" id="volume-slider" value="75" orient="vertical">
         <input type="image" id="fullscreen" alt="FULLSCREEN" src="asset/fullscreen.png" onclick="toggleFullscreen()" />
 
         <!--MODAL EDIT MENU-->
@@ -47,15 +47,15 @@
                 <form action="#" method="post">
                     <div class="introw">
                         <label for="work">Work Interval Duration (seconds)</label>
-                        <input id="work" name="work" type="number" min="1">
+                        <input id="work" name="work" type="number" min="0" value="300" step="60">
                     </div>
                     <div class="introw">
                         <label for="rest">Rest Interval Duration (seconds)</label>
-                        <input id="rest" name="rest" type="number" min="0">
+                        <input id="rest" name="rest" type="number" min="0" value="30" step="5">
                     </div>
                     <div class="introw">
                         <label for="rounds">Amount of Rounds (0 for infinite)</label>
-                        <input id="rounds" name="rounds" type="number" min="0">
+                        <input id="rounds" name="rounds" type="number" min="0" value="0">
                     </div>
                     <div class="buttonrow">
                         <button type="button" class="modbutton" id="cancel">Cancel</button>
