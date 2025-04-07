@@ -28,13 +28,11 @@ function intervalTimer() {
                     interval = 'rest';
                 }
                 else if (interval == 'rest' && rest_duration >= 0) {
-                    console.log('rest:', rest_duration, ' work:', work_duration, ' delta:', delta);
                     oneDing();
                     timeLeft = work_duration*10;
                     curdur = timeLeft;
                     roundsLeft -= 1;
                     interval = 'work';
-                    console.log('timeleft:', timeleft);
                 }
                 else if (interval == 'work' && roundsLeft <= 1) {
                     threeDing();
