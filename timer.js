@@ -27,7 +27,7 @@ function intervalTimer() {
                     curdur = timeLeft;
                     interval = 'rest';
                 }
-                else if (interval == 'rest' && rest_duration > 0) {
+                else if (interval == 'rest' && rest_duration >= 0) {
                     oneDing();
                     timeLeft = work_duration*10;
                     curdur = timeLeft;
